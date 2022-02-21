@@ -11,9 +11,6 @@
         <li class="nav-item {{ Request::route() && Request::route()->getName() === 'comics.create' ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('comics.create') }}">Aggiungi nuovo elemento</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Cancella elemento</a>
-        </li>
       </ul>
     </div>
   </nav>

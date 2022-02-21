@@ -60,6 +60,14 @@ Modifica Comic
 
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="{{ route('comics.index') }}" class="btn btn-secondary">Cancel Edit</a>
+            
+            {{-- Delete form --}}
+            
+            <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="post" style="width: 100%;">
+                @csrf
+                @method('DELETE')
+                <button style="margin-left: auto;" onclick="return confirm('Sicuro di cancellare definitivamente l\'articolo?')" class="btn btn-danger">Delete</button>
+            </form>
         </form>
 
     </div>

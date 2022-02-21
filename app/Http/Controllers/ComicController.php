@@ -138,7 +138,14 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Prendo i dati del relativo model da cancellare
+        $comic_to_delete = Comic::findOrFail($id);
+
+        // Dichiaro l'azione delete
+        $comic_to_delete->delete();
+
+        // Ritorno all'index
+        return redirect()->route('comics.index');
     }
 
     // Metodo di validazione unico per il form

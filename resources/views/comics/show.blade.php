@@ -6,8 +6,6 @@ Dettagli Comic
 
 @section('main_content')
 
-    <div class="container">
-
         <div class="card">
             <img class="card-img-top" src="{{ $comic->thumb }}" alt="{{ $comic->title }}'s image">
             <div class="card-body">
@@ -17,8 +15,5 @@ Dettagli Comic
               <a href="{{ route('comics.edit', ['comic' => $comic->id ]) }}" class="btn btn-secondary">Edit</a>
             </div>
         </div>
-
-    </div>
-    
     
 @endsection

@@ -5,7 +5,6 @@ Aggiungi Comic
 @endsection
 
 @section('main_content')
-    <div class="container">
     
         <h1>Aggiungi un nuovo elemento:</h1>
 
@@ -60,7 +59,4 @@ Aggiungi Comic
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
-    </div>
-
 @endsection

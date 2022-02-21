@@ -5,7 +5,7 @@ Modifica Comic
 @endsection
 
 @section('main_content')
-    <div class="container">
+    
     
         <h1>Modifica un elemento esistente:</h1>
 
@@ -69,7 +69,5 @@ Modifica Comic
                 <button style="margin-left: auto;" onclick="return confirm('Sicuro di cancellare definitivamente l\'articolo?')" class="btn btn-danger">Delete</button>
             </form>
         </form>
-
-    </div>
 
 @endsection

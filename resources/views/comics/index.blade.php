@@ -8,7 +8,7 @@ Lista Fumetti
 
     <h1>Lista Fumetti:</h1>
 
-    <div class="container d-flex flex-wrap">
+    <div class="d-flex flex-wrap">
     @foreach ($comics as $comic)
 
     <div class="card" style="width: 18rem; min-height: 600px; margin: 15px;">

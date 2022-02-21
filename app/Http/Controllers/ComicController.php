@@ -23,7 +23,6 @@ class ComicController extends Controller
         ];
 
         return view('comics.index', $data);
-
     }
 
     /**

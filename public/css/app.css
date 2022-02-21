@@ -12181,3 +12181,8 @@ img {
   max-width: 500px;
 }
 
+.nav-item.active {
+  text-decoration: underline;
+  font-size: bolder;
+}
+

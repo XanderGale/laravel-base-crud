@@ -25,40 +25,41 @@ Modifica Comic
 
             <div class="form-group mb-3">
                 <label for="title">Titolo:</label>
-                <input type="text" class="form-control" id="title" name='title' value='{{ $comic->title }}'>
+                <input type="text" class="form-control" id="title" name='title' value='{{ old('title') ? old('title') : $comic->title }}'>
             </div>
 
             <div class="form-group mb-3">
                 <label for="description">Descrizione:</label>
-                <textarea type="text" class="form-control" id="description" name='description' cols="30" rows="5">{{ $comic->description }}</textarea>
+                <textarea type="text" class="form-control" id="description" name='description' cols="30" rows="5">{{ old('description') ? old('description') : $comic->description }}</textarea>
             </div>
 
             <div class="form-group mb-3">
                 <label for="thumb">Immagine:</label>
-                <input type="text" class="form-control" id="thumb" name='thumb' value='{{ $comic->thumb }}'>
+                <input type="text" class="form-control" id="thumb" name='thumb' value='{{ old('thumb') ? old('thumb') : $comic->thumb }}'>
             </div>
 
             <div class="form-group mb-3">
                 <label for="price">Prezzo:</label>
-                <input type="text" class="form-control" id="price" name='price' value='{{ $comic->price }}'>
+                <input type="text" class="form-control" id="price" name='price' value='{{ old('price') ? old('price') : $comic->price }}'>
             </div>
 
             <div class="form-group mb-3">
                 <label for="series">Serie:</label>
-                <input type="text" class="form-control" id="series" name='series' value='{{ $comic->series }}'>
+                <input type="text" class="form-control" id="series" name='series' value='{{ old('series') ? old('series') : $comic->series }}'>
             </div>
 
             <div class="form-group mb-3">
                 <label for="type">Genere:</label>
-                <input type="text" class="form-control" id="type" name='type' value='{{ $comic->type }}'>
+                <input type="text" class="form-control" id="type" name='type' value='{{ old('type') ? old('type') : $comic->type }}'>
             </div>
 
             <div class="form-group mb-3">
                 <label for="sale_date">Data:</label>
-                <input type="date" class="form-control" id="sale_date" name='sale_date' value='{{ $comic->sale_date }}'>
+                <input type="date" class="form-control" id="sale_date" name='sale_date' value='{{ old('sale_date') ? old('sale_date') : $comic->sale_date }}'>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{{ route('comics.index') }}" class="btn btn-secondary">Cancel Edit</a>
         </form>
 
     </div>

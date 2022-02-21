@@ -45,9 +45,10 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Prendo i dati dal form in pagina
         $form_data = $request->all();
 
+        // Dichiaro i dati dal form
         $new_comic = new Comic();
         $new_comic->title = $form_data['title'];
         $new_comic->description = $form_data['description'];
@@ -57,8 +58,13 @@ class ComicController extends Controller
         $new_comic->sale_date = $form_data['sale_date'];
         $new_comic->type = $form_data['type'];
 
+        // Validazione dati dal form
+        $validated = $request->validate($this->validationRules());
+
+        // Salvo dati nel form se validati
         $new_comic->save();
 
+        // Indirizzo l'utente al relativo articolo caricato
         return redirect()->route('comics.show', ['comic' => $new_comic->id]);
     }
 
@@ -89,6 +95,13 @@ class ComicController extends Controller
     public function edit($id)
     {
         //
+        $comic = Comic::findOrFail($id);
+
+        $data = [
+            'comic' => $comic,
+        ];
+
+        return view('comics.edit', $data);
     }
 
     /**
@@ -100,7 +113,21 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Prendo i dati dal form in pagina
+        $form_data = $request->all();
+
+        // Prendo i dati del relativo model da fare update
+        $comic_to_update = Comic::findOrFail($id);
+        
+        // Validazione dati dal form
+        $validated = $request->validate($this->validationRules());
+        
+
+        // Faccio l'update dei dati presi dal form
+        $comic_to_update->update($form_data);
+
+        // Indirizzo l'utente al relativo articolo updatato
+        return redirect()->route('comics.show', ['comic' => $comic_to_update->id]);
     }
 
     /**
@@ -112,5 +139,18 @@ class ComicController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // Metodo di validazione unico per il form
+    protected function validationRules() {
+        return [
+            'title' => 'required|max:50',
+            'description' => 'nullable|min:50|max:60000',
+            'thumb' => 'required|active_url|max:500',
+            'series' => 'required|max:100',
+            'price' => 'numeric',
+            'sale_date' => 'date',
+            'type' => 'required|max:50',
+        ];
     }
 }

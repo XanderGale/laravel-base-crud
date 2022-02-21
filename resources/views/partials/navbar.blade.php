@@ -5,10 +5,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item {{ Request::route()->getName() === 'comics.index' ? 'active' : '' }}">
+        <li class="nav-item {{ Request::route() && Request::route()->getName() === 'comics.index' ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('comics.index') }}">Home</a>
         </li>
-        <li class="nav-item {{ Request::route()->getName() === 'comics.create' ? 'active' : '' }}">
+        <li class="nav-item {{ Request::route() && Request::route()->getName() === 'comics.create' ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('comics.create') }}">Aggiungi nuovo elemento</a>
         </li>
         <li class="nav-item">
